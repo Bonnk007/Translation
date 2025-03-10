@@ -44,13 +44,7 @@
                         <workerType>MICRO</workerType>
                         <objectStoreV2>true</objectStoreV2>
                     </cloudHubDeployment>
-                    
-                    <sharedLibraries>
-    <sharedLibrary>org.apache.activemq:activemq-client</sharedLibrary>
-    <sharedLibrary>org.apache.activemq:activemq-broker</sharedLibrary>
-    <sharedLibrary>org.apache.activemq:activemq-kahadb-store</sharedLibrary>
-    <sharedLibrary>mysql:mysql-connector-java</sharedLibrary>
-</sharedLibraries>
+                
 
                     
                 </configuration>
