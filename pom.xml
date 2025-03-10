@@ -45,24 +45,28 @@
                         <objectStoreV2>true</objectStoreV2>
                     </cloudHubDeployment>
                     <sharedLibraries>
-                        <sharedLibrary>
-                            <groupId>org.apache.activemq</groupId>
-                            <artifactId>activemq-client</artifactId>
-                        </sharedLibrary>
-                        <sharedLibrary>
-                            <groupId>org.apache.activemq</groupId>
-                            <artifactId>activemq-broker</artifactId>
-                        </sharedLibrary>
-                        <sharedLibrary>
-                            <groupId>org.apache.activemq</groupId>
-                            <artifactId>activemq-kahadb-store</artifactId>
-                        </sharedLibrary>
-                        <sharedLibrary>
-                            <groupId>mysql</groupId>
-                            <artifactId>mysql-connector-java</artifactId>
-                            <version>8.0.33</version>
-                        </sharedLibrary>
-                    </sharedLibraries>
+    <sharedLibrary>
+        <groupId>org.apache.activemq</groupId>
+        <artifactId>activemq-client</artifactId>
+        <version>5.15.16</version>
+    </sharedLibrary>
+    <sharedLibrary>
+        <groupId>org.apache.activemq</groupId>
+        <artifactId>activemq-broker</artifactId>
+        <version>5.15.16</version>
+    </sharedLibrary>
+    <sharedLibrary>
+        <groupId>org.apache.activemq</groupId>
+        <artifactId>activemq-kahadb-store</artifactId>
+        <version>5.15.16</version>
+    </sharedLibrary>
+    <sharedLibrary>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.33</version>
+    </sharedLibrary>
+</sharedLibraries>
+
                 </configuration>
             </plugin>
             <plugin>
