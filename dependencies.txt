@@ -1,0 +1,74 @@
+[INFO] Scanning for projects...
+Downloading from mulesoft-releases: https://repository.mulesoft.org/releases/org/mule/tools/maven/exchange-mule-maven-plugin/0.0.23/exchange-mule-maven-plugin-0.0.23.pom
+Downloading from central: https://repo.maven.apache.org/maven2/org/mule/tools/maven/exchange-mule-maven-plugin/0.0.23/exchange-mule-maven-plugin-0.0.23.pom
+[WARNING] Failed to retrieve plugin descriptor for org.mule.tools.maven:exchange-mule-maven-plugin:0.0.23: Plugin org.mule.tools.maven:exchange-mule-maven-plugin:0.0.23 or one of its dependencies could not be resolved:
+	The following artifacts could not be resolved: org.mule.tools.maven:exchange-mule-maven-plugin:pom:0.0.23 (absent): Could not transfer artifact org.mule.tools.maven:exchange-mule-maven-plugin:pom:0.0.23 from/to mulesoft-releases (https://repository.mulesoft.org/releases/): No such host is known (proxy.example.com)
+
+Downloading from mulesoft-releases: https://repository.mulesoft.org/releases/org/apache/maven/plugins/maven-deploy-plugin/3.1.1/maven-deploy-plugin-3.1.1.pom
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-deploy-plugin/3.1.1/maven-deploy-plugin-3.1.1.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-deploy-plugin:3.1.1: Plugin org.apache.maven.plugins:maven-deploy-plugin:3.1.1 or one of its dependencies could not be resolved:
+	The following artifacts could not be resolved: org.apache.maven.plugins:maven-deploy-plugin:pom:3.1.1 (absent): Could not transfer artifact org.apache.maven.plugins:maven-deploy-plugin:pom:3.1.1 from/to mulesoft-releases (https://repository.mulesoft.org/releases/): proxy.example.com
+
+Downloading from mulesoft-releases: https://repository.mulesoft.org/releases/org/apache/maven/plugins/maven-site-plugin/4.0.0-M10/maven-site-plugin-4.0.0-M10.pom
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-site-plugin/4.0.0-M10/maven-site-plugin-4.0.0-M10.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-site-plugin:4.0.0-M10: Plugin org.apache.maven.plugins:maven-site-plugin:4.0.0-M10 or one of its dependencies could not be resolved:
+	The following artifacts could not be resolved: org.apache.maven.plugins:maven-site-plugin:pom:4.0.0-M10 (absent): Could not transfer artifact org.apache.maven.plugins:maven-site-plugin:pom:4.0.0-M10 from/to mulesoft-releases (https://repository.mulesoft.org/releases/): proxy.example.com
+
+[INFO] 
+[INFO] -------------------< com.mycompany:translation-api2 >-------------------
+[INFO] Building translation-api2 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------[ mule-application ]--------------------------
+[WARNING] Failed to retrieve plugin descriptor for org.mule.tools.maven:exchange-mule-maven-plugin:0.0.23: Plugin org.mule.tools.maven:exchange-mule-maven-plugin:0.0.23 or one of its dependencies could not be resolved:
+	The following artifacts could not be resolved: org.mule.tools.maven:exchange-mule-maven-plugin:pom:0.0.23 (absent): org.mule.tools.maven:exchange-mule-maven-plugin:pom:0.0.23 failed to transfer from https://repository.mulesoft.org/releases/ during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of mulesoft-releases has elapsed or updates are forced. Original error: Could not transfer artifact org.mule.tools.maven:exchange-mule-maven-plugin:pom:0.0.23 from/to mulesoft-releases (https://repository.mulesoft.org/releases/): No such host is known (proxy.example.com)
+
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-deploy-plugin:3.1.1: Plugin org.apache.maven.plugins:maven-deploy-plugin:3.1.1 or one of its dependencies could not be resolved:
+	The following artifacts could not be resolved: org.apache.maven.plugins:maven-deploy-plugin:pom:3.1.1 (absent): org.apache.maven.plugins:maven-deploy-plugin:pom:3.1.1 failed to transfer from https://repository.mulesoft.org/releases/ during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of mulesoft-releases has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.maven.plugins:maven-deploy-plugin:pom:3.1.1 from/to mulesoft-releases (https://repository.mulesoft.org/releases/): proxy.example.com
+
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-site-plugin:4.0.0-M10: Plugin org.apache.maven.plugins:maven-site-plugin:4.0.0-M10 or one of its dependencies could not be resolved:
+	The following artifacts could not be resolved: org.apache.maven.plugins:maven-site-plugin:pom:4.0.0-M10 (absent): org.apache.maven.plugins:maven-site-plugin:pom:4.0.0-M10 failed to transfer from https://repository.mulesoft.org/releases/ during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of mulesoft-releases has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.maven.plugins:maven-site-plugin:pom:4.0.0-M10 from/to mulesoft-releases (https://repository.mulesoft.org/releases/): proxy.example.com
+
+[INFO] 
+[INFO] --- dependency:3.7.0:tree (default-cli) @ translation-api2 ---
+Downloading from mulesoft-releases: https://repository.mulesoft.org/releases/org/apache/maven/doxia/doxia-sink-api/1.12.0/doxia-sink-api-1.12.0.pom
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.12.0/doxia-sink-api-1.12.0.pom
+Downloading from mulesoft-releases: https://repository.mulesoft.org/releases/org/apache/maven/reporting/maven-reporting-api/3.1.1/maven-reporting-api-3.1.1.pom
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-api/3.1.1/maven-reporting-api-3.1.1.pom
+Downloading from mulesoft-releases: https://repository.mulesoft.org/releases/org/apache/maven/reporting/maven-reporting-impl/3.2.0/maven-reporting-impl-3.2.0.pom
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-impl/3.2.0/maven-reporting-impl-3.2.0.pom
+Downloading from mulesoft-releases: https://repository.mulesoft.org/releases/org/codehaus/plexus/plexus-i18n/1.0-beta-10/plexus-i18n-1.0-beta-10.pom
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-i18n/1.0-beta-10/plexus-i18n-1.0-beta-10.pom
+Downloading from mulesoft-releases: https://repository.mulesoft.org/releases/org/apache/maven/shared/maven-dependency-analyzer/1.14.1/maven-dependency-analyzer-1.14.1.pom
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-analyzer/1.14.1/maven-dependency-analyzer-1.14.1.pom
+Downloading from mulesoft-releases: https://repository.mulesoft.org/releases/org/apache/maven/shared/maven-dependency-tree/3.3.0/maven-dependency-tree-3.3.0.pom
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.3.0/maven-dependency-tree-3.3.0.pom
+Downloading from mulesoft-releases: https://repository.mulesoft.org/releases/org/apache/maven/shared/maven-common-artifact-filters/3.3.2/maven-common-artifact-filters-3.3.2.pom
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/3.3.2/maven-common-artifact-filters-3.3.2.pom
+Downloading from mulesoft-releases: https://repository.mulesoft.org/releases/org/apache/maven/shared/maven-artifact-transfer/0.13.1/maven-artifact-transfer-0.13.1.pom
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.13.1/maven-artifact-transfer-0.13.1.pom
+Downloading from mulesoft-releases: https://repository.mulesoft.org/releases/org/apache/maven/resolver/maven-resolver-util/1.4.1/maven-resolver-util-1.4.1.pom
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/resolver/maven-resolver-util/1.4.1/maven-resolver-util-1.4.1.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.762 s
+[INFO] Finished at: 2025-03-10T14:22:54+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-dependency-plugin:3.7.0:tree (default-cli) on project translation-api2: Execution default-cli of goal org.apache.maven.plugins:maven-dependency-plugin:3.7.0:tree failed: Plugin org.apache.maven.plugins:maven-dependency-plugin:3.7.0 or one of its dependencies could not be resolved:
+[ERROR] 	Failed to read artifact descriptor for org.apache.maven.doxia:doxia-sink-api:jar:1.12.0
+[ERROR] 	Failed to read artifact descriptor for org.apache.maven.reporting:maven-reporting-api:jar:3.1.1
+[ERROR] 	Failed to read artifact descriptor for org.apache.maven.reporting:maven-reporting-impl:jar:3.2.0
+[ERROR] 	Failed to read artifact descriptor for org.codehaus.plexus:plexus-i18n:jar:1.0-beta-10
+[ERROR] 	Failed to read artifact descriptor for org.apache.maven.shared:maven-dependency-analyzer:jar:1.14.1
+[ERROR] 	Failed to read artifact descriptor for org.apache.maven.shared:maven-dependency-tree:jar:3.3.0
+[ERROR] 	Failed to read artifact descriptor for org.apache.maven.shared:maven-common-artifact-filters:jar:3.3.2
+[ERROR] 	Failed to read artifact descriptor for org.apache.maven.shared:maven-artifact-transfer:jar:0.13.1
+[ERROR] 	Failed to read artifact descriptor for org.apache.maven.resolver:maven-resolver-util:jar:1.4.1
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginResolutionException

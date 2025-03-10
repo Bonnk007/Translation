@@ -44,10 +44,6 @@
 					</cloudHubDeployment>
 					<sharedLibraries>
 						<sharedLibrary>
-							<groupId>com.mycompany</groupId>
-							<artifactId>mysql-connector-j-9.2.0</artifactId>
-						</sharedLibrary>
-						<sharedLibrary>
 							<groupId>org.apache.activemq</groupId>
 							<artifactId>activemq-client</artifactId>
 						</sharedLibrary>
@@ -58,6 +54,10 @@
 						<sharedLibrary>
 							<groupId>org.apache.activemq</groupId>
 							<artifactId>activemq-kahadb-store</artifactId>
+						</sharedLibrary>
+						<sharedLibrary>
+							<groupId>com.mycompany</groupId>
+							<artifactId>mysql-connector-j-8.0.33</artifactId>
 						</sharedLibrary>
 					</sharedLibraries>
 				</configuration>
@@ -108,12 +108,15 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
+<<<<<<< HEAD
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>
     <version>8.0.33</version> <!-- Change to a valid version if needed -->
     <scope>runtime</scope>
 </dependency>
 		<dependency>
+=======
+>>>>>>> eb4a5b3 (Updated pom.xml with MySQL connector 8.0.33)
 			<groupId>com.mulesoft.munit</groupId>
 			<artifactId>munit-runner</artifactId>
 			<version>3.4.0</version>
@@ -166,6 +169,11 @@
 			<version>1.5.3</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
+		<dependency>
+    <groupId>MySQL</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.33</version>
+</dependency>
 	</dependencies>
 
 	<repositories>
