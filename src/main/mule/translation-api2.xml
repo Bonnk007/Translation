@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	
+	<mule xmlns:jms="http://www.mulesoft.org/schema/mule/jms" xmlns:sqs="http://www.mulesoft.org/schema/mule/sqs"
+		xmlns:db="http://www.mulesoft.org/schema/mule/db"
+		xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+	http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+	http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+	http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+	http://www.mulesoft.org/schema/mule/sqs http://www.mulesoft.org/schema/mule/sqs/current/mule-sqs.xsd
+	http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd">
+		<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="91c2440b-9c50-4c0b-a6a5-9970f785cf3a" >
+			<http:listener-connection host="0.0.0.0" port="8081" />
+		</http:listener-config>
+		<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="6322258c-e667-4c20-8e73-1cf2be221eab">
+			<http:request-connection host="${rapidapi.host}" protocol="HTTPS"/>
+		</http:request-config>
+		<db:config name="Database_Config1" doc:name="Database Config" doc:id="f54b7774-1ca5-42f4-b742-341eb4af2c73" >
+			<db:my-sql-connection host="${db_host}" port="${db_port}" user="${db_user}" password="${db_password}" database="${db_name}" />
+		</db:config>
+		<sqs:config name="Amazon_SQS_Configuration" doc:name="Amazon SQS Configuration" doc:id="fe6b27e4-3b95-4332-acef-6f754c0c085d" defaultQueueUrl="https://sqs.us-east-1.amazonaws.com/843981437160/translated_dataqueue">
+		<sqs:basic-connection testQueueArn="arn:aws:sqs:us-east-1:843981437160:translated_dataqueue" accessKey="${aws_sqs_accessKey}" secretKey="${aws_sqs_secretKey}" region="${aws_sqs_region}"/>
+	</sqs:config>
+	<configuration-properties doc:name="Configuration properties" doc:id="c18dffff-ef12-4ae0-b01b-3dda4ddd8282" file="config.yaml" />
+	<flow name="translation-api2Flow" doc:id="dc8ea600-307e-477f-bf54-707dd7f59a98" >
+			<http:listener doc:name="Listener" doc:id="71dda64c-3c09-466e-ac98-b8f08e122ac4" config-ref="HTTP_Listener_config" path="/translate" allowedMethods="POST"/>
+			<ee:transform doc:name="Transform Message" doc:id="63ee4ae6-98d0-40d3-917c-86f175278598" >
+				<ee:message >
+					<ee:set-payload ><![CDATA[%dw 2.0
+	output application/json
+	---
+	{
+		source_language:payload.source_language,
+		target_language:payload.target_language,
+		input_text:payload.input_text
+	}]]></ee:set-payload>
+				</ee:message>
+			</ee:transform>
+			<logger level="INFO" doc:name="Logger" doc:id="09a90b55-a1e0-4519-a6b1-d1d4689ee952" message="#[payload]"/>
+			<set-variable value="#[payload.source_language]" doc:name="Set Variable" doc:id="ec1e9319-967c-4ea8-b805-5df834955d3b" variableName="sourceLang"/>
+			<set-variable value="#[payload.target_language]" doc:name="Set Variable" doc:id="31e45b97-bc29-4b99-8a95-809372b5fa43" variableName="targetLang"/>
+			<set-variable value="#[payload.input_text]" doc:name="Set Variable" doc:id="2a2478ee-fd51-490a-a275-3bf344f75503" variableName="inputText"/>
+		<http:request method="POST" doc:name="Request" doc:id="1e56688d-97c7-41ab-b0e8-e96f6da22590" config-ref="HTTP_Request_configuration" url="https://translateai.p.rapidapi.com/google/translate/text">
+				<http:headers ><![CDATA[#[output application/json
+	---
+	{
+    "Content-Type" : "application/json",
+    "X-RapidAPI-Host" : p('rapidapi.host'),
+    "X-RapidAPI-Key" : p('rapidapi.key')
+}]]]></http:headers>
+			</http:request>
+			<logger level="INFO" doc:name="Logger" doc:id="a9256e90-bf07-42e8-ab86-ca4f5316d9f2" message="#[payload]"/>
+		<ee:transform doc:name="Transform Message" doc:id="526e6eac-aca3-4d64-bde8-a595f55c10fd" >
+				<ee:message >
+					<ee:set-payload ><![CDATA[%dw 2.0
+	output application/json
+	---
+	{
+		source_language: vars.sourceLang,
+		target_language: vars.targetLang,
+		input_text: vars.inputText,
+		translated_text: payload.translation
+	}]]></ee:set-payload>
+				</ee:message>
+			</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="019ca50a-4ecb-43bf-8b21-f91d40a2a472" message="#[payload]"/>
+			<set-variable value="#[payload.translated_text]" doc:name="Set Variable" doc:id="e0ebe82b-2c9d-48d2-be19-fe24ba89a7ea" variableName="translatedtext" />
+		<db:insert doc:name="Insert" doc:id="6deba314-2b32-457c-abf1-566ae84b9716" config-ref="Database_Config1">
+				<db:sql><![CDATA[INSERT INTO translations (source_language, target_language, input_text, translated_text)
+	VALUES (:source, :target, :input, :translated)
+	]]></db:sql>
+				<db:input-parameters><![CDATA[#[{
+	    "source": vars.sourceLang,
+	    "target": vars.targetLang,
+	    "input": vars.inputText,
+	    "translated": payload.translated_text
+	}]]]></db:input-parameters>
+	
+			</db:insert>
+			<ee:transform doc:name="Transform Message" doc:id="3f2ce405-b201-4f1d-9b52-175dc71640a1" >
+				<ee:message >
+					<ee:set-payload ><![CDATA[%dw 2.0
+	output application/json
+	---
+	{
+		"message": "translation successful",
+		"translated_text": vars.translatedText
+	}]]></ee:set-payload>
+				</ee:message>
+			</ee:transform>
+			<logger level="INFO" doc:name="Logger" doc:id="5abd0f2d-07f5-439c-b77d-4403b12188ef" message="#[payload]"/>
+		<ee:transform doc:name="Transform Message" doc:id="58aa5f53-d8d6-4112-9032-177c8734dbb2" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+{
+	body : write(payload, "application/json")
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<sqs:send-message doc:name="Send message" doc:id="52dc0040-88cc-45f3-9d54-90996e3dd656" config-ref="Amazon_SQS_Configuration" queueUrl="https://sqs.us-east-1.amazonaws.com/843981437160/translated_dataqueue"/>
+		<logger level="INFO" doc:name="Logger" doc:id="70bec89d-0d19-425f-9ca9-9e4a4712dacc" message="#[payload]"/>
+	
+		
+</flow>
+	
+</mule>
