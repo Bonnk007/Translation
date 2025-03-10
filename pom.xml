@@ -46,23 +46,12 @@
                     </cloudHubDeployment>
                     
                     <sharedLibraries>
-                        <sharedLibrary>
-                            <groupId>org.apache.activemq</groupId>
-                            <artifactId>activemq-client</artifactId>
-                        </sharedLibrary>
-                        <sharedLibrary>
-                            <groupId>org.apache.activemq</groupId>
-                            <artifactId>activemq-broker</artifactId>
-                        </sharedLibrary>
-                        <sharedLibrary>
-                            <groupId>org.apache.activemq</groupId>
-                            <artifactId>activemq-kahadb-store</artifactId>
-                        </sharedLibrary>
-                        <sharedLibrary>
-                            <groupId>mysql</groupId>
-                            <artifactId>mysql-connector-java</artifactId>
-                        </sharedLibrary>
-                    </sharedLibraries>
+    <sharedLibrary>org.apache.activemq:activemq-client</sharedLibrary>
+    <sharedLibrary>org.apache.activemq:activemq-broker</sharedLibrary>
+    <sharedLibrary>org.apache.activemq:activemq-kahadb-store</sharedLibrary>
+    <sharedLibrary>mysql:mysql-connector-java</sharedLibrary>
+</sharedLibraries>
+
                     
                 </configuration>
             </plugin>
@@ -93,63 +82,78 @@
     </build>
 
     <dependencies>
-        <dependency>
-            <groupId>org.mule.connectors</groupId>
-            <artifactId>mule-http-connector</artifactId>
-            <version>1.10.3</version>
-            <classifier>mule-plugin</classifier>
-        </dependency>
-        <dependency>
-            <groupId>org.mule.connectors</groupId>
-            <artifactId>mule-sockets-connector</artifactId>
-            <version>1.2.5</version>
-            <classifier>mule-plugin</classifier>
-        </dependency>
-        <dependency>
-            <groupId>org.mule.connectors</groupId>
-            <artifactId>mule-db-connector</artifactId>
-            <version>1.14.13</version>
-            <classifier>mule-plugin</classifier>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.33</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.mulesoft.munit</groupId>
-            <artifactId>munit-runner</artifactId>
-            <version>3.4.0</version>
-            <classifier>mule-plugin</classifier>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.mulesoft.munit</groupId>
-            <artifactId>munit-tools</artifactId>
-            <version>3.4.0</version>
-            <classifier>mule-plugin</classifier>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mule.weave</groupId>
-            <artifactId>assertions</artifactId>
-            <version>1.2.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.mulesoft.connectors</groupId>
-            <artifactId>mule-amazon-sqs-connector</artifactId>
-            <version>5.11.14</version>
-            <classifier>mule-plugin</classifier>
-        </dependency>
-        <dependency>
-            <groupId>com.mulesoft.connectors</groupId>
-            <artifactId>mule-amazon-dynamodb-connector</artifactId>
-            <version>1.5.3</version>
-            <classifier>mule-plugin</classifier>
-        </dependency>
-    </dependencies>
+    <dependency>
+        <groupId>org.mule.connectors</groupId>
+        <artifactId>mule-http-connector</artifactId>
+        <version>1.10.3</version>
+        <classifier>mule-plugin</classifier>
+    </dependency>
+    <dependency>
+        <groupId>org.mule.connectors</groupId>
+        <artifactId>mule-sockets-connector</artifactId>
+        <version>1.2.5</version>
+        <classifier>mule-plugin</classifier>
+    </dependency>
+    <dependency>
+        <groupId>org.mule.connectors</groupId>
+        <artifactId>mule-db-connector</artifactId>
+        <version>1.14.13</version>
+        <classifier>mule-plugin</classifier>
+    </dependency>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.33</version>
+    </dependency>
+    <dependency>
+        <groupId>com.mulesoft.munit</groupId>
+        <artifactId>munit-runner</artifactId>
+        <version>3.4.0</version>
+        <classifier>mule-plugin</classifier>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.mulesoft.munit</groupId>
+        <artifactId>munit-tools</artifactId>
+        <version>3.4.0</version>
+        <classifier>mule-plugin</classifier>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.mule.weave</groupId>
+        <artifactId>assertions</artifactId>
+        <version>1.2.1</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.mulesoft.connectors</groupId>
+        <artifactId>mule-amazon-sqs-connector</artifactId>
+        <version>5.11.14</version>
+        <classifier>mule-plugin</classifier>
+    </dependency>
+    <dependency>
+        <groupId>com.mulesoft.connectors</groupId>
+        <artifactId>mule-amazon-dynamodb-connector</artifactId>
+        <version>1.5.3</version>
+        <classifier>mule-plugin</classifier>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.activemq</groupId>
+        <artifactId>activemq-client</artifactId>
+        <version>5.17.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.activemq</groupId>
+        <artifactId>activemq-broker</artifactId>
+        <version>5.17.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.activemq</groupId>
+        <artifactId>activemq-kahadb-store</artifactId>
+        <version>5.17.1</version>
+    </dependency>
+</dependencies>
+
 
     <repositories>
         <repository>
