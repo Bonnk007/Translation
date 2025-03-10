@@ -29,21 +29,25 @@
                 <version>3.2.0</version>
             </plugin>
             <plugin>
-                <groupId>org.mule.tools.maven</groupId>
-                <artifactId>mule-maven-plugin</artifactId>
-                <version>${mule.maven.plugin.version}</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <cloudHub2>
-                        <applicationName>Translate</applicationName>
-                        <target>CloudHub 2.0</target>
-                        <environment>Sandbox</environment>
-                        <region>us-east-1</region>
-                        <workers>1</workers>
-                        <workerType>MICRO</workerType>
-                    </cloudHub2>
-                </configuration>
-            </plugin>
+    <groupId>org.mule.tools.maven</groupId>
+    <artifactId>mule-maven-plugin</artifactId>
+    <version>${mule.maven.plugin.version}</version>
+    <extensions>true</extensions>
+    <configuration>
+    <cloudHub2>
+        <applicationName>Translate</applicationName>
+        <target>CloudHub 2.0</target>
+        <environment>Sandbox</environment>
+        <region>us-east-1</region>
+        <workers>1</workers>
+        <workerType>MICRO</workerType>
+        <username>${env.ANYPOINT_USERNAME}</username>
+        <password>${env.ANYPOINT_PASSWORD}</password>
+    </cloudHub2>
+</configuration>
+
+</plugin>
+
             <plugin>
                 <groupId>com.mulesoft.munit.tools</groupId>
                 <artifactId>munit-maven-plugin</artifactId>
