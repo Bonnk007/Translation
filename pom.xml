@@ -44,27 +44,26 @@
                         <workerType>MICRO</workerType>
                         <objectStoreV2>true</objectStoreV2>
                     </cloudHubDeployment>
+                    
                     <sharedLibraries>
-    <sharedLibraries>
-    <sharedLibrary>
-        <groupId>org.apache.activemq</groupId>
-        <artifactId>activemq-client</artifactId>
-    </sharedLibrary>
-    <sharedLibrary>
-        <groupId>org.apache.activemq</groupId>
-        <artifactId>activemq-broker</artifactId>
-    </sharedLibrary>
-    <sharedLibrary>
-        <groupId>org.apache.activemq</groupId>
-        <artifactId>activemq-kahadb-store</artifactId>
-    </sharedLibrary>
-    <sharedLibrary>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-    </sharedLibrary>
-</sharedLibraries>
-
-
+                        <sharedLibrary>
+                            <groupId>org.apache.activemq</groupId>
+                            <artifactId>activemq-client</artifactId>
+                        </sharedLibrary>
+                        <sharedLibrary>
+                            <groupId>org.apache.activemq</groupId>
+                            <artifactId>activemq-broker</artifactId>
+                        </sharedLibrary>
+                        <sharedLibrary>
+                            <groupId>org.apache.activemq</groupId>
+                            <artifactId>activemq-kahadb-store</artifactId>
+                        </sharedLibrary>
+                        <sharedLibrary>
+                            <groupId>mysql</groupId>
+                            <artifactId>mysql-connector-java</artifactId>
+                        </sharedLibrary>
+                    </sharedLibraries>
+                    
                 </configuration>
             </plugin>
             <plugin>
