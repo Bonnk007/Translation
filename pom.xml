@@ -108,10 +108,11 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
-			<groupId>com.mycompany</groupId>
-			<artifactId>mysql-connector-j-9.2.0</artifactId>
-			<version>0.1</version>
-		</dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.33</version> <!-- Change to a valid version if needed -->
+    <scope>runtime</scope>
+</dependency>
 		<dependency>
 			<groupId>com.mulesoft.munit</groupId>
 			<artifactId>munit-runner</artifactId>
@@ -168,6 +169,25 @@
 	</dependencies>
 
 	<repositories>
+		<repositories>
+    <repository>
+        <id>central</id>
+        <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+    <repository>
+        <id>anypoint-exchange-v3</id>
+        <name>Anypoint Exchange</name>
+        <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+        <layout>default</layout>
+    </repository>
+    <repository>
+        <id>mulesoft-releases</id>
+        <name>MuleSoft Releases Repository</name>
+        <url>https://repository.mulesoft.org/releases/</url>
+        <layout>default</layout>
+    </repository>
+</repositories>
+
 		<repository>
 			<id>anypoint-exchange-v3</id>
 			<name>Anypoint Exchange</name>
