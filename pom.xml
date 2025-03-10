@@ -34,7 +34,7 @@
     <version>${mule.maven.plugin.version}</version>
     <extensions>true</extensions>
     <configuration>
-    <cloudHub2>
+    <deployment>
         <applicationName>Translate</applicationName>
         <target>CloudHub 2.0</target>
         <environment>Sandbox</environment>
@@ -43,8 +43,9 @@
         <workerType>MICRO</workerType>
         <username>${env.ANYPOINT_USERNAME}</username>
         <password>${env.ANYPOINT_PASSWORD}</password>
-    </cloudHub2>
+    </deployment>
 </configuration>
+
 
 </plugin>
 
