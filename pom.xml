@@ -29,25 +29,22 @@
                 <version>3.2.0</version>
             </plugin>
             <plugin>
-    <groupId>org.mule.tools.maven</groupId>
-    <artifactId>mule-maven-plugin</artifactId>
-    <version>${mule.maven.plugin.version}</version>
-    <extensions>true</extensions>
-    <configuration>
-    <deployment>
-        <applicationName>Translate</applicationName>
-        <target>CloudHub 2.0</target>
-        <environment>Sandbox</environment>
-        <region>us-east-1</region>
-        <workers>1</workers>
-        <workerType>MICRO</workerType>
-        <username>${env.ANYPOINT_USERNAME}</username>
-        <password>${env.ANYPOINT_PASSWORD}</password>
-    </deployment>
-</configuration>
-
-
-</plugin>
+                <groupId>org.mule.tools.maven</groupId>
+                <artifactId>mule-maven-plugin</artifactId>
+                <version>${mule.maven.plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <deployment>
+                        <applicationName>Translate</applicationName>
+                        <target>CloudHub 2.0</target>
+                        <environment>Sandbox</environment>
+                        <region>us-east-1</region>
+                        <workers>1</workers>
+                        <workerType>MICRO</workerType>
+                        <server>anypoint-platform</server>
+                    </deployment>
+                </configuration>
+            </plugin>
 
             <plugin>
                 <groupId>com.mulesoft.munit.tools</groupId>
@@ -75,17 +72,19 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>anypoint-exchange-v3</id>
+            <name>Anypoint Exchange</name>
+            <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+        </repository>
+    </distributionManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.mule.connectors</groupId>
             <artifactId>mule-http-connector</artifactId>
             <version>1.10.3</version>
-            <classifier>mule-plugin</classifier>
-        </dependency>
-        <dependency>
-            <groupId>org.mule.connectors</groupId>
-            <artifactId>mule-sockets-connector</artifactId>
-            <version>1.2.5</version>
             <classifier>mule-plugin</classifier>
         </dependency>
         <dependency>
@@ -111,12 +110,6 @@
             <artifactId>munit-tools</artifactId>
             <version>3.4.0</version>
             <classifier>mule-plugin</classifier>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mule.weave</groupId>
-            <artifactId>assertions</artifactId>
-            <version>1.2.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -164,4 +157,3 @@
         </pluginRepository>
     </pluginRepositories>
 </project>
-
