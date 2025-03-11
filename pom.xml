@@ -19,6 +19,8 @@
         <mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
         <munit.version>3.4.0</munit.version>
         <skipMunitTests>true</skipMunitTests>
+        <anypoint.username>your-username</anypoint.username> <!-- Replace with your Anypoint username -->
+        <anypoint.password>your-password</anypoint.password> <!-- Replace with your Anypoint password -->
     </properties>
 
     <build>
