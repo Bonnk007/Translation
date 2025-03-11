@@ -19,6 +19,8 @@
         <mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
         <munit.version>3.4.0</munit.version>
         <skipMunitTests>true</skipMunitTests>
+        <anypoint.username>your-username</anypoint.username> <!-- Replace with your Anypoint username -->
+        <anypoint.password>your-password</anypoint.password> <!-- Replace with your Anypoint password -->
     </properties>
 
     <build>
@@ -29,12 +31,12 @@
                 <version>3.2.0</version>
             </plugin>
             <plugin>
-    <groupId>org.mule.tools.maven</groupId>
-    <artifactId>mule-maven-plugin</artifactId>
-    <version>${mule.maven.plugin.version}</version>  <!-- Now matches Mule runtime -->
-    <extensions>true</extensions>
+                <groupId>org.mule.tools.maven</groupId>
+                <artifactId>mule-maven-plugin</artifactId>
+                <version>${mule.maven.plugin.version}</version>
+                <extensions>true</extensions>
                 <configuration>
-                    <cloudHubDeployment>
+                    <deployment>
                         <applicationName>Translate</applicationName>
                         <target>CloudHub 2.0</target>
                         <environment>Sandbox</environment>
@@ -42,7 +44,7 @@
                         <workers>1</workers>
                         <workerType>MICRO</workerType>
                         <server>anypoint-platform</server>
-                    </cloudHubDeployment>
+                    </deployment>
                 </configuration>
             </plugin>
 
