@@ -2,14 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mycompany</groupId>
     <artifactId>translation-api2</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>mule-application</packaging>
-    
+
     <name>translation-api2</name>
 
     <properties>
@@ -19,8 +19,6 @@
         <mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
         <munit.version>3.4.0</munit.version>
         <skipMunitTests>true</skipMunitTests>
-        <anypoint.username>${ANYPOINT_USERNAME}</anypoint.username>
-        <anypoint.password>${ANYPOINT_PASSWORD}</anypoint.password>
     </properties>
 
     <build>
@@ -30,7 +28,7 @@
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>3.2.0</version>
             </plugin>
-            
+
             <plugin>
                 <groupId>org.mule.tools.maven</groupId>
                 <artifactId>mule-maven-plugin</artifactId>
@@ -38,8 +36,8 @@
                 <extensions>true</extensions>
                 <configuration>
                     <cloudHubDeployment>
-                        <username>${anypoint.username}</username>
-                        <password>${anypoint.password}</password>
+                        <username>${env.ANYPOINT_USERNAME}</username>
+                        <password>${env.ANYPOINT_PASSWORD}</password>
                         <applicationName>Translate</applicationName>
                         <environment>Sandbox</environment>
                         <region>us-east-1</region>
@@ -47,6 +45,13 @@
                         <workerType>MICRO</workerType>
                     </cloudHubDeployment>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
@@ -78,7 +83,7 @@
     <distributionManagement>
         <repository>
             <id>anypoint-exchange-v3</id>
-            <name>Anypoint-Exchange</name>
+            <name>Anypoint Exchange</name>
             <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
         </repository>
     </distributionManagement>
