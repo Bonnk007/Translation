@@ -107,6 +107,12 @@
             <version>5.11.14</version>
             <classifier>mule-plugin</classifier>
         </dependency>
+        <dependency>
+            <groupId>com.mulesoft.connectors</groupId>
+            <artifactId>mule-amazon-dynamodb-connector</artifactId>
+            <version>1.5.3</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
     </dependencies>
 
     <repositories>
