@@ -1,4 +1,3 @@
- 
 name: Build and Deploy to Sandbox
  
 on:
@@ -54,17 +53,14 @@ jobs:
     - uses: actions/download-artifact@v4  # Updated from master to v4
       with:
         name: artifacts
-        - name: Deploy to Sandbox
+    - name: Deploy to Sandbox
       env:
-        ANYPOINT_USERNAME: ${{ secrets.USERNAME }}
-        ANYPOINT_PASSWORD: ${{ secrets.PASSWORD }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PASSWORD: ${{ secrets.PASSWORD }}
       run: |
         artifactName=$(ls *.jar | head -1)
-        mvn mule:deploy \
-         -DskipTests \
+        mvn deploy -DmuleDeploy \
          -Dmule.artifact=$artifactName \
-         -Danypoint.username="$ANYPOINT_USERNAME" \
-         -Danypoint.password="$ANYPOINT_PASSWORD" \
-         -Danypoint.environment="Sandbox" \
-         -Danypoint.businessGroup="YourBusinessGroup" \
-         -Danypoint.target="CloudHub"
+         -Danypoint.username="$USERNAME" \
+         -Danypoint.password="$PASSWORD" \
+         -DskipTests
