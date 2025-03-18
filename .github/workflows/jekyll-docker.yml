@@ -60,7 +60,61 @@ jobs:
       with:
         name: artifacts
     - name: Setup Maven Settings  # Added settings.xml step
-      run: echo "${{ secrets.MAVEN_SETTINGS }}" > ~/.m2/settings.xml
+      run: |
+        mkdir -p ~/.m2
+        cat > ~/.m2/settings.xml <<EOF
+        <?xml version="1.0" encoding="UTF-8"?>
+        <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <profiles>
+                <profile>
+                    <id>mule-profile</id>
+                    <repositories>
+                        <repository>
+                            <id>mulesoft-releases</id>
+                            <url>https://repository.mulesoft.org/nexus/content/repositories/releases/</url>
+                        </repository>
+                        <repository>
+                            <id>mulesoft-snapshots</id>
+                            <url>https://repository.mulesoft.org/nexus/content/repositories/snapshots/</url>
+                        </repository>
+                    </repositories>
+                </profile>
+            </profiles>
+
+            <activeProfiles>
+                <activeProfile>mule-profile</activeProfile>
+            </activeProfiles>
+
+            <mirrors>
+                <mirror>
+                    <id>mulesoft-releases-mirror</id>
+                    <mirrorOf>mulesoft-releases</mirrorOf>
+                    <url>https://repository.mulesoft.org/nexus/content/repositories/releases/</url>
+                    <layout>default</layout>
+                </mirror>
+                <mirror>
+                    <id>mulesoft-snapshots-mirror</id>
+                    <mirrorOf>mulesoft-snapshots</mirrorOf>
+                    <url>https://repository.mulesoft.org/nexus/content/repositories/snapshots/</url>
+                    <layout>default</layout>
+                </mirror>
+            </mirrors>
+
+            <pluginGroups>
+                <pluginGroup>org.mule.tools</pluginGroup>
+            </pluginGroups>
+
+            <servers>
+                <server>
+                    <id>anypoint-exchange</id>
+                    <username>${{ secrets.ANYPOINT_USERNAME }}</username>
+                    <password>${{ secrets.ANYPOINT_PASSWORD }}</password>
+                </server>
+            </servers>
+        </settings>
+        EOF
+      shell: bash
     - name: Deploy to Sandbox
       run: |
         artifactName=$(ls *.jar *.zip 2>/dev/null | head -1)
