@@ -38,4 +38,3 @@ jobs:
           -Ddecryption.key="${{ secrets.DECRYPTION_KEY }}"\
           -Dtarget="CloudHub-2.0"\
           -Denvironment="Sandbox"
-          
